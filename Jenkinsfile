@@ -29,6 +29,11 @@ pipeline {
           }
         }
     }
+      tage('Mutation Tests - PIT') {
+        steps {
+          sh "mvn sonar:sonar  -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://greenops.uksouth.cloudapp.azure.com:9000 -Dsonar.login=50222058b2f3241602e26fe01d98f282a65e4c01 " }
+    }
+      
       stage('Docker Build and Push') {
         steps {
             withDockerRegistry([credentialsId: "dockerhub", url: ""]) {
