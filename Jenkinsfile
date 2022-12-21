@@ -7,12 +7,12 @@ pipeline {
               sh "mvn clean package -DskipTests=true"
               archive 'target/*.jar' 
             }
-        }   
+      }   
       stage('Unit test') {
             steps {
               sh "mvn test"
             }
-        }
+      }
       stage('Mutation Tests - PIT') {
         steps {
           sh "mvn org.pitest:pitest-maven:mutationCoverage"
@@ -36,7 +36,7 @@ pipeline {
             steps {
               sh "mvn dependency-check:check"
             }
-    } 
+      } 
 
       stage('Docker Build and Push') {
         steps {
@@ -73,5 +73,3 @@ pipeline {
       }
   }
 }
-
-
