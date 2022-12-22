@@ -90,7 +90,7 @@ deny[msg] {
     input[i].Cmd == "user"
     val := input[i].Value
     contains(lower(val[_]), forbidden_users[_])
-    msg = sprintf("Line %d: Last USER directive (USER %s) is forbidden", [i, lastuser])
+    msg = sprintf("Line %d: Last USER directive (USER %s) is forbidden", [i])
 }
 
 # Do not sudo
