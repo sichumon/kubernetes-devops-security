@@ -71,12 +71,12 @@ deny[msg] {
     msg = "Do not run as root, use USER instead"
 }
 
-## ... but do not root
-#forbidden_users = [
-#    "root",
-#    "toor",
-#    "0"
-#]
+# ... but do not root
+forbidden_users = [
+    "root",
+    "toor",
+    "0"
+]
 
 #deny[msg] {
 #    command := "user"
@@ -85,6 +85,13 @@ deny[msg] {
 #    contains(lower(lastuser[_]), forbidden_users[_])
 #    msg = sprintf("Line %d: Last USER directive (USER %s) is forbidden", [i, lastuser])
 #}
+
+deny[msg] {
+    input[i].Cmd == "user"
+    val := input[i].Value
+    contains(lower(val[_]), forbidden_users[_])
+    msg = sprintf("Line %d: Last USER directive (USER %s) is forbidden", [i, lastuser])
+}
 
 # Do not sudo
 deny[msg] {
