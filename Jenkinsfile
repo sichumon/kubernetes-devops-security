@@ -24,11 +24,11 @@ pipeline {
           withSonarQubeEnv('SonarQube') {
             sh "mvn sonar:sonar -Dsonar.projectKey=numeric-application -Dsonar.host.url=http://ubuntu1.cube.com:9000  -Dsonar.login=b527a1ecb990903d7da4318855129b9309da4425" 
           }
-          timeout(time: 3, unit: 'MINUTES') {
-            script {
-              waitForQualityGate abortPipeline: true
-            }
-          }
+          // timeout(time: 3, unit: 'MINUTES') {
+          //   script {
+          //     waitForQualityGate abortPipeline: true
+          //   } 
+          // }
         }
       }
       
