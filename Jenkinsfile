@@ -41,11 +41,6 @@ pipeline {
         }
       }
       
-      // stage('Vulnerability Scan - Docker ') {
-      //       steps {
-      //         sh "mvn dependency-check:check"
-      //       }
-      // }
 
       stage('Vulnerability Scan - Docker') {
         steps {
@@ -81,6 +76,9 @@ pipeline {
             },
             "Kubesec Scan": {
               sh "bash kubesec-scan.sh"
+            },
+            "Trivy Scan": {
+              sh "bash trivy-k8s-scan.sh"
             }
           )
         }
