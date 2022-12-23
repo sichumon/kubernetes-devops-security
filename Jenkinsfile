@@ -5,7 +5,7 @@ pipeline {
     deploymentName = "devsecops"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
-    imageName = "jstan77/numeric-app:${GIT_COMMIT}"
+    imageName = "siddharth67/numeric-app:${GIT_COMMIT}"
     applicationURL = "http://ubuntu1.cube.com"
     applicationURI = "/increment/99"
   }
