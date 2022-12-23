@@ -5,7 +5,7 @@ pipeline {
     deploymentName = "devsecops"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
-     imageName = "siddharth67/numeric-app"
+     imageName = "siddharth67/numeric-app:17f0fe28ae753b839b1056f9d7a7b1def20383be"
     applicationURL = "http://ubuntu1.cube.com"
     applicationURI = "/increment/99"
   }
