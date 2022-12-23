@@ -5,7 +5,7 @@ pipeline {
     deploymentName = "devsecops"
     containerName = "devsecops-container"
     serviceName = "devsecops-svc"
-     imageName = "siddharth67/numeric-app:17f0fe28ae753b839b1056f9d7a7b1def20383be"
+    imageName = "jstan77/numeric-app:${GIT_COMMIT}"
     applicationURL = "http://ubuntu1.cube.com"
     applicationURI = "/increment/99"
   }
@@ -77,9 +77,9 @@ pipeline {
             "Kubesec Scan": {
               sh "bash kubesec-scan.sh"
             },
-            // "Trivy Scan": {
-            //   sh "bash trivy-k8s-scan.sh"
-            // }
+            "Trivy Scan": {
+              sh "bash trivy-k8s-scan.sh"
+            }
           )
         }
       }
